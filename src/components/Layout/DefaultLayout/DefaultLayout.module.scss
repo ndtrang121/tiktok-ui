@@ -5,12 +5,10 @@
 }
 
 .container {
-	width: 1150px;
+	width: var(--default-layout-width, 1150px);
 	display: flex;
 }
 
 .content {
 	flex: 1;
-	background-color: #bbb;
-	min-height: 1000px;
 }
