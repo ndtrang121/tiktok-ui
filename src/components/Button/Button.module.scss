@@ -1,9 +1,13 @@
 .wrapper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	font-size: 1.6rem;
 	font-weight: 700;
 	min-width: 100px;
 	padding: 9px 16px;
 	border-radius: 4px;
+	font-family: 'ProximaNova', sans-serif;
 	cursor: pointer;
 	background-color: var(--white);
 	border: 1px solid transparent;
@@ -23,11 +27,11 @@
 .rounded {
 	border-radius: 9999px;
 	border-color: rgba(22, 24, 35, 0.12);
-    color: rgba(22, 24, 35, 0.75);
+	color: rgba(22, 24, 35, 0.75);
 
 	&:hover {
-    	border-color: rgba(22, 24, 35, 0.2);
-    	background-color: rgba(22, 24, 35, 0.03);
+		border-color: rgba(22, 24, 35, 0.2);
+		background-color: rgba(22, 24, 35, 0.03);
 	}
 }
 
@@ -37,7 +41,7 @@
 	border-color: var(--primary);
 
 	&:hover {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
 		border-color: var(--primary);
 	}
 }
@@ -45,7 +49,7 @@
 .outline {
 	border-color: var(--primary);
 	color: var(--primary);
-	
+
 	&:hover {
 		background-color: rgba(254, 44, 85, 0.06);
 		border-color: var(--primary);
@@ -62,13 +66,13 @@
 
 .icon + .title,
 .title + .icon {
-    margin-left: 8px;
+	margin-left: 8px;
 }
 
 .icon {
-    display: inline-block;
-    width: 24px;
-    text-align: center;
+	display: inline-block;
+	width: 24px;
+	text-align: center;
 }
 
 // Button sizes
@@ -80,6 +84,4 @@
 .large {
 	min-width: 140px;
 	padding: 14px 16px;
-
 }
-

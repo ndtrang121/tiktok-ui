@@ -27,7 +27,7 @@ function Button({
 	let Comp = 'button'
 	const props = {
 		onClick,
-		...passProps
+		...passProps,
 	}
 
 	// Remove event listener when button is disabled
@@ -55,9 +55,8 @@ function Button({
 		disabled,
 		small,
 		large,
-		[className]: className
+		[className]: className,
 	})
-
 
 	return (
 		<Comp className={classes} {...props}>

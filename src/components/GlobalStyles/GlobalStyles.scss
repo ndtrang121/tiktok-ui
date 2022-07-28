@@ -1,33 +1,35 @@
-
-:root{
-    --primary: #fe2c55;
+:root {
+	--primary: #fe2c55;
 	--black: #000;
 	--white: #fff;
-	--text-color: #333;
+	--text-color: #161823;
 
 	// Default layout
 	--default-layout-header-height: 60px;
 	--default-layout-width: 1150px;
+	--default-layout-herizontal-spacer: 24px;
 }
 
 * {
 	margin: 0;
 	padding: 0;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
+	font-family: 'ProximaNova', sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	text-rendering: optimizeSpeed;
 }
 
-button, input, [tabindex] {
+button,
+input,
+[tabindex] {
 	outline: none;
 	border: none;
 }
@@ -35,4 +37,50 @@ button, input, [tabindex] {
 a[href] {
 	color: var(--text-color);
 	text-decoration: none;
+}
+
+// Fonts embed
+@font-face {
+	font-family: ProximaNova;
+	src: url('../../assets/fonts/Proxima-Nova-Regular.woff2');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: ProximaNova;
+	src: url('../../assets/fonts/ProximaNova-Semibold.woff2');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: ProximaNova;
+	src: url('../../assets/fonts/Proxima-Nova-Bold.woff');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: SofiaPro;
+	src: url('../../assets/fonts/sofiapro-bold.woff2');
+	font-weight: 700;
+}
+
+// Custum Tooltip
+.tippy-box {
+	border-radius: 8px;
+	font-weight: 600;
+	line-height: 22px;
+	font-size: 1.6rem;
+	background-color: rgba(0, 0, 0, 0.65);
+}
+
+.tippy-content {
+	padding: 8px 9px;
+}
+
+.tippy-arrow {
+	color: rgba(0, 0, 0, 0.65);
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+	top: -1px;
 }
