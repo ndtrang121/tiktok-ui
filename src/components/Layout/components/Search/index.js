@@ -53,44 +53,59 @@ function Search() {
 		setShowResult(false)
 	}
 
+	const handleChange = (e) => {
+		const searchValue = e.target.value
+		// setSearchValue(searchValue.replace(/^\s+/g, ''))
+		if (!searchValue.startsWith(' ')) {
+			setSearchValue(searchValue)
+		}
+	}
+
+	const handleSubmit = () => {
+
+	}
 
 	return (
-		<HeadlessTippy
-			interactive={true}
-			visible={showResult && searchResult.length > 0}
-			render={(attrs) => (
-				<div className={cx('search-result')} tabIndex='-1' {...attrs}>
-					<PopperWrapper>
-						<h4 className={cx('search-title')}>Accounts</h4>
-						{searchResult.map((result) => (
-							<AccountItem key={result.id} data={result} />
-						))}
-					</PopperWrapper>
-				</div>
-			)}
-			onClickOutside={handleHideResult}
-		>
-			<div className={cx('search')}>
-				<input
-					ref={inputRef}
-					value={searchValue}
-					placeholder='Search accounts and videos'
-					spellCheck={false}
-					onChange={(e) => setSearchValue(e.target.value.replace(/^\s+/g, ''))}
-					onFocus={() => setShowResult(true)}
-				/>
-				{!!searchValue && !loading &&
-					<button className={cx('clear')} onClick={handleClear}>
-						<FontAwesomeIcon icon={faCircleXmark} />
-					</button>
-				}
+		// Using a wrapper <div> or <span> tag around the reference element solves 
+		// this by creating a new parentNode context. 
+		<div>
+			<HeadlessTippy
+				interactive={true}
+				visible={showResult && searchResult.length > 0}
+				render={(attrs) => (
+					<div className={cx('search-result')} tabIndex='-1' {...attrs}>
+						<PopperWrapper>
+							<h4 className={cx('search-title')}>Accounts</h4>
+							{searchResult.map((result) => (
+								<AccountItem key={result.id} data={result} onClick={handleHideResult} />
+							))}
+						</PopperWrapper>
+					</div>
+				)}
+				onClickOutside={handleHideResult}
+			>
+				<div className={cx('search')}>
+					<input
+						ref={inputRef}
+						value={searchValue}
+						placeholder='Search accounts and videos'
+						spellCheck={false}
+						onChange={handleChange}
+						onFocus={() => setShowResult(true)}
+					/>
+					{!!searchValue && !loading &&
+						<button className={cx('clear')} onClick={handleClear}>
+							<FontAwesomeIcon icon={faCircleXmark} />
+						</button>
+					}
 
-				{loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-				<button className={cx('search-btn')}>
-					<SearchIcon />
-				</button>
-			</div>
-		</HeadlessTippy>
+					{loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+					<button className={cx('search-btn')} onClick={handleSubmit} onMouseDown={(e) => e.preventDefault()}>
+						<SearchIcon />
+					</button>
+				</div>
+			</HeadlessTippy>
+		</div>
 	)
 }
 
