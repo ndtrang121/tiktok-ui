@@ -1,4 +1,4 @@
-import { HeaderOnly } from '~/components/Layout'
+import { HeaderOnly } from '~/layouts'
 import routesConfig from '~/config/routes'
 
 import Home from '~/pages/Home'
